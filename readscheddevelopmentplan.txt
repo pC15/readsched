@@ -1,0 +1,34 @@
+Reading Schedule application
+*Basic App works as of 3/3/15.
+
+Asks for:
+title
+number of pages
+number of pages user will read in a day
+how many days per week user will read
+start date.
+
+Outputs:
+    summary of information (title, #pages, #pages/day, #days/week, start date)
+    how many days it will take to finish the book
+    Approximate date of finishing
+
+Calculations:
+    how many days it will take to finish the book:
+	approximate date of finishing:
+
+
+Possible issues:
+    What about time difference? does that play into the date calculation? No, it doesn't.
+
+
+How to make it better:
+   	Form validation aka preparing for the worst user possible
+   	Nice printing/formatting the response text from ajax
+   	After response text, prompt to schedule reading days (ex. 2 days/week, so can pick M/T, T/Th, M/F, etc)
+    
+
+EXTRAS:
+Output gives reading dates and offers to schedule them on calendar.
+
+Think like MAL mobile app. User can update pages when finished reading, rate stars, leave reviews.

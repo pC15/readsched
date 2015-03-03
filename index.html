@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Reading Schedule Web App</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	<script>
+		$(function() {
+			$("#datepicker").datepicker();
+		});
+	</script>
+	<script>
+		$(function () {
+			$("form").on("submit", function (e) {
+				e.preventDefault();
+				$.ajax({
+					type: "get",
+					url: "readsched.php",
+					async: false,
+					data: $("form").serialize(),
+					success: function (text) {
+						response = text;
+					}
+				});
+				//alert(response); for testing
+				$("#mySpan").text(response);
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Reading Schedule Web App</h1>
+	
+	<p>Welcome to the Reading Schedule App!</p>
+	<p>Please enter your data in the form, and watch the magic happen on submit!</p>
+
+	<form>
+		Title: <input type="text" name="title" placeholder="title"> <br/>
+		Number of Pages: <input type="text" name="totalpages" placeholder="#ofpages"> <br/>
+		How many pages will you read each day? <input type="text" name="sittingpages" placeholder="#ofpages/day"> <br/>
+		How many days will you read on each week? <input type="text" name="daysperweek" placeholder="#days/week"> <br/>
+		Start Date: <input type="text" name="startdate" placeholder="start date" id="datepicker"> <br/><br/>
+		<input type="submit" value="Submit!"> <input type="reset" value="Clear Form">
+	</form>
+	<br/><span id="mySpan"></span>
+</body>
+
+</html>
